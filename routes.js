@@ -11,4 +11,3 @@ userRouter.get("/edit", function(req,res) {
 userRouter.get("/password", function(req,res) {
     res.send("user password");
 });
-
