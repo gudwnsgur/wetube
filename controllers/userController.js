@@ -1,26 +1,24 @@
-/*
+
 export const join = function(req, res) {
-    reqs.send("Join");
+    res.send("Join");
+};
+export const login = function(req, res) {
+    res.send("Login");
+};
+export const logout = function(req, res) {
+    res.send("Logout");
 };
 
-export const  = function(req, res) {
-    reqs.send();
-};
-export const  = function(req, res) {
-    reqs.send();
-};
-export const  = function(req, res) {
-    reqs.send();
-};
-export const  = function(req, res) {
-    reqs.send();
-};
-*/
 
-export const join = (req, res) => res.send("Join");
-export const login = (req, res) => res.send("Login");
-export const logout = (req, res) => res.send("Logout");
-export const users = (req, res) => res.send("Users");
-export const userDetail = (req, res) => res.send("User Detail");
-export const editProfile = (req, res) => res.send("Edit Profile");
-export const changePassword = (req, res) => res.send("Change Password");
+export const users = function(req, res) {
+    res.send("User");
+};
+export const userDetail = function(req, res) {
+    res.send("User Detail");
+};
+export const editProfile = function(req, res) {
+    res.send("Edit Profile");
+};
+export const changePassword = function(req, res) {
+    res.send("Change Password");
+};
