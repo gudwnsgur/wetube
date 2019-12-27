@@ -21,7 +21,8 @@ app.use(morgan("dev"));
 // middleware 에서 send 가 일어나면 연결이 끊긴다.
 
 
-app.use(routes.home, globalRouter);
+// router
+app.use(routes.home, globalRouter);  
 app.use(routes.users, userRouter);  // /user url에 접속하면 userRouter 전체를 사용하겠다.
 app.use(routes.videos, videoRouter);
 
