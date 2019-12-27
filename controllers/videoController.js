@@ -1,22 +1,21 @@
+// render 첫 번째 인자 : templates
+// render 두 번째 인자 : template에 추가할 정보가 담긴 Object
+
 export const home = function (req, res) {
-    res.send("Home");
+    res.render("home", { pageTitle: "Home"}); 
 };
 export const search = function (req, res) {
-    res.send("Search");
-};
-
-export const videos = function (req, res) {
-    res.send("Videos");
+    res.render("search", {pageTitle : "Search"});
 };
 export const upload = function (req, res) {
-    res.send("Upload");
+    res.render("upload", {pageTitle : "Upload"});
 };
 export const videoDetail = function (req, res) {
-    res.send("Video Detail.");
+    res.render("videoDetail", {pageTitle : "Video Detail"});
 };
 export const editVideo = function (req, res) {
-    res.send("Edit Video");
+    res.render("editVideo", {pageTitle : "Edit Video"});
 };
 export const deleteVideo = function (req, res) {
-    res.send("Delete Video");
+    res.render("deleteVideo", {pageTitle : "Delete Video"});
 };

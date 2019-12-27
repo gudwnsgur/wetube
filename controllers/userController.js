@@ -1,24 +1,21 @@
 
 export const join = function(req, res) {
-    res.send("Join");
+    res.render("join", {pageTitle : "Join"});
 };
 export const login = function(req, res) {
-    res.send("Login");
+    res.render("login", {pageTitle : "Log In"});
 };
 export const logout = function(req, res) {
-    res.send("Logout");
+    res.render("logout", {pageTitle : "Log Out"});
 };
 
 
-export const users = function(req, res) {
-    res.send("User");
-};
 export const userDetail = function(req, res) {
-    res.send("User Detail");
+    res.render("userDetail", {pageTitle : "User Detail"});
 };
 export const editProfile = function(req, res) {
-    res.send("Edit Profile");
+    res.render("editProfile", {pageTitle : "Edit Profile"});
 };
 export const changePassword = function(req, res) {
-    res.send("Change Password");
+    res.render("changePassword", {pageTitle : "Change Password"});
 };
