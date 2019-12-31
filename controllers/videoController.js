@@ -4,9 +4,18 @@
 export const home = function (req, res) {
     res.render("home", { pageTitle: "Home"}); 
 };
+
 export const search = function (req, res) {
-    res.render("search", {pageTitle : "Search"});
+    const {
+        query : {term: searchingBy}
+    } = req;
+
+    res.render("search", {pageTitle : "Search", searchingBy});
+    // const searchingBy = req.query.term;
+    // res.render("search", {pageTitle : "Search", searchingBy:searchingBy});
+
 };
+
 export const upload = function (req, res) {
     res.render("upload", {pageTitle : "Upload"});
 };
