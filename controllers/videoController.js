@@ -11,15 +11,26 @@ export const search = function (req, res) {
         query : {term: searchingBy}
     } = req;
 
-    res.render("search", {pageTitle : "Search", searchingBy});
-    // const searchingBy = req.query.term;
-    // res.render("search", {pageTitle : "Search", searchingBy:searchingBy});
-
+    res.render("search", { pageTitle : "Search", 
+                           searchingBy, 
+                           videos
+                        }
+            );
 };
 
-export const upload = function (req, res) {
-    res.render("upload", {pageTitle : "Upload"});
+export const getUpload = function (req, res) {
+  res.render("upload", { pageTitle: "Upload" })
 };
+
+export const postUpload = function (req, res)  {
+  const {
+    body: { file, title, description }
+  } = req;
+  // To Do: Upload and save video
+  res.redirect(routes.videoDetail(324393));
+};
+
+
 export const videoDetail = function (req, res) {
     res.render("videoDetail", {pageTitle : "Video Detail"});
 };

@@ -1,13 +1,41 @@
+import routes from "../routes"
 
-export const join = function(req, res) {
+export const getJoin = function(req, res) {
+
     res.render("join", {pageTitle : "Join"});
 };
-export const login = function(req, res) {
+export const postJoin = function (req, res) {
+    const {
+        body : {name, email, password, password2}
+    } = req;
+
+    if(password != password2) {
+        res.status(400);
+        res.render("join", {pageTitle: "Join"});
+    } 
+    else {
+        // To Do : Register User
+        // To Do : Log User In
+        res.redirect(routes.home);
+    }
+
+};
+
+export const getLogin = function(req, res) {
     res.render("login", {pageTitle : "Log In"});
 };
-export const logout = function(req, res) {
-    res.render("logout", {pageTitle : "Log Out"});
+export const postLogin = function(req, res) {  
+    const {
+        body : {email, password}
+    } = req;
+    res.redirect(routes.home);
 };
+
+export const logout  = function (req, res) {
+    // To Do: Process Log Out
+    res.redirect(routes.home);
+  };
+  
 
 
 export const userDetail = function(req, res) {
