@@ -1,8 +1,21 @@
+import routes from "../routes";
+import Video from "../models/Video"
+
 // render 첫 번째 인자 : templates
 // render 두 번째 인자 : template에 추가할 정보가 담긴 Object
 
-export const home = function (req, res) {
-    res.render("home", { pageTitle: "Home", videos}); 
+
+// await is only valid in async function !!
+export const home = async function(req, res) 
+{
+  try {
+    const videos = await Video.find({});
+    console.log(videos);
+    res.render("home", { pageTitle: "Home", videos }); 
+  } catch(error) {
+    console.log(error);
+    res.render("home", { pageTitle: "Home", videos:[] });
+  }
 };
 
 export const search = function (req, res) {
