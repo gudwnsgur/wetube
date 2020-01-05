@@ -1,6 +1,5 @@
 // render 첫 번째 인자 : templates
 // render 두 번째 인자 : template에 추가할 정보가 담긴 Object
-import {videos} from "../db"
 
 export const home = function (req, res) {
     res.render("home", { pageTitle: "Home", videos}); 
