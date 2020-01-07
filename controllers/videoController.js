@@ -50,8 +50,14 @@ export const postUpload = async function (req, res)  {
 };
 
 
-export const videoDetail = function (req, res) {
-    res.render("videoDetail", {pageTitle : "Video Detail"});
+export const videoDetail = async function (req, res) {
+  const videoId = req.params.id;
+  try {
+  const video = await Video.findById(videoId);
+  res.render("videoDetail", {pageTitle : "Video Detail", video});
+  } catch(error) {
+    res.redirect(routes.home);
+  }
 };
 export const editVideo = function (req, res) {
     res.render("editVideo", {pageTitle : "Edit Video"});
