@@ -9,8 +9,9 @@ import Video from "../models/Video"
 export const home = async function(req, res) 
 {
   try {
-    const videos = await Video.find({});
+    const videos = await Video.find({}).sort({ _id: -1 });
     console.log(videos);
+
     res.render("home", { pageTitle: "Home", videos }); 
   } catch(error) {
     console.log(error);
@@ -18,12 +19,19 @@ export const home = async function(req, res)
   }
 };
 
-export const search = function (req, res) {
+export const search = async function (req, res) {
     const {
         query : {term: searchingBy}
     } = req;
-
-    res.render("search", { pageTitle : "Search", 
+    let videos = [];
+    try {
+      videos = await Video.find({
+        title : { $regex: searchingBy , $options: "i" }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    res.render("search", { pageTitle: "Search", 
                            searchingBy, 
                            videos
                         }
@@ -89,6 +97,8 @@ export const deleteVideo = async function (req, res) {
   const id = req.params.id;
   try {
     await Video.findOneAndRemove({_id : id}); 
-  } catch(error) {}
+  } catch(error) {
+    console.log(error);
+  }
   res.redirect(routes.home);
 };
