@@ -8,17 +8,19 @@ import { getJoin, postJoin, getLogin, postLogin, logout }
 
 const globalRouter = express.Router();
 
+// join 
 globalRouter.get(routes.join, getJoin); 
-globalRouter.post(routes.join, postJoin);
+globalRouter.post(routes.join, postJoin, postLogin);
 
+// login
 globalRouter.get(routes.login, getLogin);
 globalRouter.post(routes.login, postLogin);
-// 같은 url 로 get || post
 
-
+// home
 globalRouter.get(routes.home, home);
+// search
 globalRouter.get(routes.search, search);
-
+// logout
 globalRouter.get(routes.logout, logout);
 
 export default globalRouter;
